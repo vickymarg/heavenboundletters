@@ -136,16 +136,13 @@
       if (!noteText) return;
 
       const note = document.createElement('div');
-      note.className = 'floating-note';
+     note.className = 'floating-note heart-sparkle';
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
       note.textContent = noteText;
 
-      floatingNotes.appendChild(note);
-      textarea.value = '';
-
-      setTimeout(() => {
-        floatingNotes.removeChild(note);
-      }, 11000);
-    });
-  </script>
-</body>
-</html>
+  
