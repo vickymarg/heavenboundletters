@@ -1,42 +1,151 @@
-.letter-form {
-  background: #fff;
-  padding: 1.5em;
-  max-width: 600px;
-  margin: 2em auto;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letters to Heaven</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f5faff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2em;
+      text-align: center;
+    }
 
-.letter-form textarea,
-.letter-form input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1em;
-  margin-top: 0.5em;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-}
+    textarea {
+      width: 90%;
+      max-width: 500px;
+      height: 150px;
+      padding: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
 
-.letter-form button {
-  margin-top: 1em;
-  padding: 10px 20px;
-  background: #6c88ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    .floating-note {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: floatUp 10s ease-in forwards;
+      font-size: 1.1em;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 14px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-top: 1em;
+    }
 
-.letter-form button:hover {
-  background: #4d6ee6;
-}
+    @keyframes floatUp {
+      0% { bottom: 0; opacity: 1; }
+      100% { bottom: 100%; opacity: 0; }
+    }
 
-.note {
-  text-align: center;
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 1em;
-}
+    #floatingNotes {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Letters to Heaven 💌</h1>
+
+  <form id="letterForm">
+    <textarea placeholder="Write your letter here..." required></textarea><br/>
+    <button type="submit" class="letter-form button">Send</button>
+  </form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letters to Heaven</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f5faff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2em;
+      text-align: center;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 500px;
+      height: 150px;
+      padding: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .floating-note {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: floatUp 10s ease-in forwards;
+      font-size: 1.1em;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 14px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-top: 1em;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: 0;
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+
+    #floatingNotes {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Letters to Heaven 💌</h1>
+
+  <form id="letterForm">
+    <textarea placeholder="Write your letter here..." required></textarea><br/>
+    <button type="submit" class="letter-form button">Send</button>
+  </form>
+
+  <div id="floatingNotes"></div>
+
+  <script>
+    const form = document.getElementById('letterForm');
+    const floatingNotes = document.getElementById('floatingNotes');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const textarea = this.querySelector('textarea');
+      const noteText = textarea.value.trim();
+      if (!noteText) return;
+
+      const note = document.createElement('div');
+      note.className = 'floating-note';
+      note.textContent = noteText;
+
+      floatingNotes.appendChild(note);
+      textarea.value = '';
+
+      setTimeout(() => {
+        floatingNotes.removeChild(note);
+      }, 11000);
+    });
+  </script>
+</body>
+</html>
