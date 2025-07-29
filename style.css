@@ -26,6 +26,20 @@ main {
   margin-bottom: 2em;
 }
 /* --- JayJay’s Shine Section --- */
+floatingNotes.appendChild(note);
+
+// Add heart sparkle
+const heart = document.createElement('div');
+heart.className = 'heart-sparkle';
+heart.innerHTML = '❤️';
+heart.style.left = Math.random() * 80 + '%';
+floatingNotes.appendChild(heart);
+
+setTimeout(() => {
+  floatingNotes.removeChild(note);
+  floatingNotes.removeChild(heart);
+}, 11000);
+
 .shine {
   background: url('bluejayfeather.png') no-repeat center center;
   background-size: cover;
