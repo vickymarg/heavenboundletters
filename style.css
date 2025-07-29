@@ -27,6 +27,21 @@ main {
 }
 /* --- JayJay’s Shine Section --- */
 .shine {
+  background: url('bluejayfeather.png') no-repeat center center;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  padding: 3em 1em;
+  text-align: center;
+  color: #222;
+  animation: fadeInFeather 4s ease-in-out;
+}
+
+@keyframes fadeInFeather {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.shine {
   border-left: 4px solid #ffc107;
   padding-left: 12px;
   margin-top: 20px;
