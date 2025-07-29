@@ -67,4 +67,80 @@ main {
   display: block;
   margin: 0 auto;
 }
+.letter-form {
+  background: #fff;
+  padding: 1.5em;
+  max-width: 600px;
+  margin: 2em auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.letter-form textarea,
+.letter-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  margin-top: 0.5em;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.letter-form button {
+  margin-top: 1em;
+  padding: 10px 20px;
+  background: #6c88ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.letter-form button:hover {
+  background: #4d6ee6;
+}
+
+.note {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 1em;
+}
+/* Floating animation for letters */
+.floating-note {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  width: 200px;
+  opacity: 0.7;
+  transform: translateX(-50%);
+  animation: floatUp 10s ease-in-out forwards;
+  font-family: 'Georgia', serif;
+  font-size: 1.1em;
+  color: #444;
+  text-align: center;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateX(-52%) translateY(-300px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-55%) translateY(-600px);
+    opacity: 0;
+  }
+}
 
